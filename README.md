@@ -1,6 +1,10 @@
 # Potential Employee Portfolio
 
+[Launch the Site Here!!](https://nateayye.github.io/potential-portfolio/)
+
 ## Description
+
+I have Also made it Light and Dark Theme prefered compatible and with the reset it should accomidate for people with the prefered motion reduced.
 
 Here I have made a simple employee portfolio that one might see hiring for or looking through probable candidates when hiring a web developer.
 
