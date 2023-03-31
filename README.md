@@ -1,6 +1,7 @@
 # Potential Employee Portfolio
 
 [Launch the Site Here!!](https://nateayye.github.io/potential-portfolio/)
+![Potentiol Portfolio Screen Shot](https://raw.githubusercontent.com/NateAyye/potential-portfolio/main/assets/images/readmeImage.png)
 
 ## Description
 
