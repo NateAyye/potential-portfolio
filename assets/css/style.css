@@ -23,6 +23,7 @@
   --accent-color: #cf7497;
   --primary-dark: rgb(40, 40, 40);
   --primary-light: #dfe7e7;
+  --medium-padding: 1rem;
 
   color-scheme: light dark;
   color: var(--primary-text-color);
@@ -32,6 +33,7 @@
   font-weight: 500;
 }
 
+#about,
 footer ul,
 footer,
 #hero,
@@ -45,7 +47,7 @@ header {
   justify-content: space-between;
   background-color: var(--primary-bg-color);
   box-shadow: 0px -10px 20px var(--primary-text-color);
-  padding: 1rem;
+  padding: var(--medium-padding);
   position: fixed;
   z-index: 10;
   inset: 0 0 auto 0;
@@ -56,11 +58,11 @@ header .brand-name {
   font-weight: 800;
   background-color: var(--primary-text-color);
   color: var(--primary-bg-color);
-  padding: 0 1rem;
+  padding: 0 var(--medium-padding);
 }
 
 header ul {
-  gap: 1rem;
+  gap: var(--medium-padding);
   list-style: none;
 }
 
@@ -124,7 +126,7 @@ header li:hover a::after {
   padding: 2rem;
   background-color: rgba(var(--text-rgb), 0.9);
   color: var(--primary-bg-color);
-  border-radius: 1rem;
+  border-radius: var(--medium-padding);
 
   box-shadow: 5px 5px 12px rgba(var(--bg-rgb), 0.9);
 }
@@ -138,6 +140,13 @@ header li:hover a::after {
 #hero img {
   max-width: 300px;
 }
+#about hr {
+  height: 150px;
+}
+
+#about p {
+  padding: var(--medium-padding);
+}
 
 main {
   box-shadow: 0 0 10px rgba(var(--text-rgb), 0.2);
@@ -148,12 +157,13 @@ main {
 main #projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 150px;
+  grid-auto-rows: 200px;
   width: 100%;
-  gap: 1rem;
-  padding: 1rem;
+  gap: var(--medium-padding);
+  padding: var(--medium-padding);
 }
 
+#about h2,
 main h3 {
   padding: 0 1rem;
   font-size: 50px;
@@ -174,7 +184,7 @@ main h3 {
   bottom: 15%;
   background-color: var(--primary-color);
   color: var(--primary-bg-color);
-  padding: 1rem;
+  padding: var(--medium-padding);
   opacity: 0.9;
 
   transition: bottom 400ms ease-in-out;
@@ -203,7 +213,7 @@ main #projects .project-container:first-of-type {
 }
 
 footer h5 {
-  padding: 1rem 1.5rem;
+  padding: var(--medium-padding) 1.5rem;
   font-size: 30px;
 }
 
@@ -221,5 +231,20 @@ footer ul {
   justify-content: space-around;
   text-decoration: underline;
   text-decoration-thickness: 0.2ex;
-  padding: 1rem 2rem;
+  padding: var(--medium-padding) 2rem;
+}
+
+@media screen and (width < 738px) {
+  main #projects {
+    grid-template-columns: 1fr;
+  }
+
+  main #projects .project-container:first-of-type {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  footer ul {
+    flex-direction: column;
+  }
 }
