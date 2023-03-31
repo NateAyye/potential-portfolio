@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
+/* Setting the variables for when the user prefers dark theme  */
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-bg-color: var(--primary-dark);
@@ -9,6 +10,7 @@
   }
 }
 
+/* Setting the variables for when the user prefers light theme  */
 @media (prefers-color-scheme: light) {
   :root {
     --primary-bg-color: var(--primary-light);
@@ -18,12 +20,18 @@
   }
 }
 
+/* Default variables for the project
+ Colors,
+ Spacing, */
+
 :root {
   --primary-color: #74abcf;
   --accent-color: #cf7497;
   --primary-dark: rgb(40, 40, 40);
   --primary-light: #dfe7e7;
   --medium-padding: 1rem;
+
+  /* setting all the default values used throughout the site */
 
   color-scheme: light dark;
   color: var(--primary-text-color);
@@ -32,6 +40,9 @@
   font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
 }
+
+/* trying to simplify my styles by making everything that needs display flex align-items center grouped together
+ to minimize the amount times typing it */
 
 #about,
 footer ul,
@@ -43,6 +54,12 @@ header {
   align-items: center;
 }
 
+/* Header Styles */
+
+/* I made the header fixed so that it would always stay at the top of the screen
+  I wanted to add the functionallity where it dissapears on scrollDown and reappears on scrollup 
+  Also I want the background color to turn transparent when it reaches the top of the screen.
+  But My time constraints and the current curriculum probably wouldn't want all of that right now. */
 header {
   justify-content: space-between;
   background-color: var(--primary-bg-color);
@@ -71,6 +88,13 @@ header li a {
   color: var(--primary-text-color);
 }
 
+/* Here I am setting the after element on the links within the header to give them a custom underline 
+ But I Wanted the underline only to show up when i am hovering over it 
+ And I wanted it to grow out from the left side 
+  so I set the width and height and background to be able to see something then I could
+  set the scale to 0 so that it isn't visible at first
+   and the transform origin to left so it grows from the left side. */
+
 header li a::after {
   content: '';
   width: 100%;
@@ -87,9 +111,17 @@ header li a::after {
   transition: transform 200ms ease-in-out;
 }
 
+/* When a list Item is hovered scale the anchors after element to 1 */
+
 header li:hover a::after {
   transform: scaleX(1);
 }
+
+/* Hero Section Styles */
+
+/* I wanted to make the header touch the top of the screen so i could add a 
+ scroll effect on the header/navbar but I didn't have the time to add javascript to the project
+ and I also didn't want to start adding things that we haven't learned yet. */
 
 #hero {
   position: relative;
@@ -102,6 +134,9 @@ header li:hover a::after {
 
   z-index: -1;
 }
+
+/* I made the hero image just a background image on the heros before element to 
+that I could filter it without effecting the other content within the header */
 
 #hero::before {
   content: '';
@@ -148,11 +183,20 @@ header li:hover a::after {
   padding: var(--medium-padding);
 }
 
+/* Main Element Styling */
+
 main {
   box-shadow: 0 0 10px rgba(var(--text-rgb), 0.2);
   display: flex;
   padding: 1rem;
 }
+
+/* Styling the Container for the projects so that it can handle the projects responsively
+ I wanted to make this a grid so that I can change the layout depending on screen width */
+
+/* I set the grid-template-columns so that i could have 3 even columns within my grid 
+ then i set the grid auto rows to 200px so that it automatically makes every possible row that I will need be 200px
+  */
 
 main #projects {
   display: grid;
@@ -169,14 +213,12 @@ main h3 {
   font-size: 50px;
 }
 
+/* Styling for the project containers */
+
 #projects .project-container {
   border: 5px solid var(--primary-color);
   position: relative;
   background-size: cover;
-}
-
-.project-container {
-  cursor: pointer;
 }
 
 .project-container div {
@@ -190,10 +232,16 @@ main h3 {
   transition: bottom 400ms ease-in-out;
 }
 
-main #projects .project-container:first-of-type {
+/* Setting the first child of the .project-container to span across all 
+ columns and also to span down 3 whole rows  */
+
+.project-container:first-of-type {
   grid-column: 1 / span 3;
   grid-row: 1 / span 3;
 }
+
+/* Setting the images withing the projects to be as large as its parent and the I want 
+ the image to cover the whole area without having empty space (object-fit: cover) */
 
 .project-container img {
   object-fit: cover;
@@ -212,6 +260,8 @@ main #projects .project-container:first-of-type {
   bottom: 20%;
 }
 
+/* Footer Styles */
+
 footer h5 {
   padding: var(--medium-padding) 1.5rem;
   font-size: 30px;
@@ -225,6 +275,8 @@ footer hr {
   height: 2rem;
 }
 
+/* Footer Links */
+
 footer ul {
   list-style: none;
   flex-grow: 1;
@@ -234,10 +286,14 @@ footer ul {
   padding: var(--medium-padding) 2rem;
 }
 
+/* Handling screen width thats less than 738 pixels */
 @media screen and (width < 738px) {
+  /* Setting the grid to only use one column */
   main #projects {
     grid-template-columns: 1fr;
   }
+
+  /* Setting the first child to only take up one row and column */
 
   main #projects .project-container:first-of-type {
     grid-column: 1;
